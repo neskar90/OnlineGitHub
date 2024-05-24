@@ -1,0 +1,381 @@
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* configuration de nuetro body page*/ 
+body {
+  font-family: Arial;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+/* Para header and head*/
+
+.banner {
+  padding: 30px;
+  text-align: center;
+  background: #fff;;
+  color: white;
+}
+
+.headerlogo{
+  width: 50%;
+  height: auto;
+}
+
+/* the nav bar (menu) */
+.navbar {
+  margin-bottom: 1px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-bottom: 1.5px solid #d1d0d0;
+  border-top: 3px solid #d1d0d0;
+}
+
+.navbar a {
+  color: rgb(0, 0, 0);
+  padding: 20px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* para cambiar el color del menu */
+.navbar a:hover {
+  color: #4070f4;
+  font-weight: bold;
+}
+
+/******************Tienda **************************/
+
+.headtienda {
+ margin-top: 50px;
+flex-direction: column;
+align-items: center;
+width: auto;
+background-color: rgb(255, 255, 255);
+/* text head page tienda*/
+}
+.h1 {
+  text-align: center;
+  margin-top: 50px;
+  justify-content: right;
+  margin-bottom: 30px;
+
+}
+
+.h2 {
+  text-align: center;
+  margin-top: 50px;
+  justify-content: right;
+  margin-bottom: 30px;
+  color: #4070f4;
+}
+
+p{
+  
+  text-align: center;
+  font-size: 22px;
+}
+
+
+
+
+
+
+/***************  card container********************/
+.card-container {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  background-color:#fff;
+  margin-bottom: 150px;
+}
+.card {
+  width: 300px;
+  background-color: #f0f0f0;;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  margin: 20px;
+  border: 1px solid #000000;
+}
+
+.card img{
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+}
+.card content {
+  padding: 15px;
+  width: auto;
+}
+.card-content h3{
+  font-size: 28px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.card-content p{
+  color: #666;
+  font-size: 17px;
+  line-height: 1.3;
+  text-align: center;
+}
+.card-content .cart-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width:250px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 25px 25px;
+  background-color: #4070f4;
+}
+
+.cart-btn:hover{
+  color: #000000;
+}
+
+
+
+/******************************* page lista carrera ************************/
+
+section{
+  margin-top: 70px;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 180px;
+  justify-content: center;
+}
+
+.card-container {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  background-color:#fff;
+  margin-bottom: 150px;
+}
+
+/******************Noticias***********************/
+  .cardnoticia {
+    width: 1000px;
+    background-color: #f0f0f0;;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+  }
+
+
+  
+.containertitulonoticia{
+    background-color: #4070f4;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    height: 30px;
+    color: white;
+  }
+
+.containerdescripcionnoticia{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+
+.Containercarrera{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 70px;
+  width: 80%;
+  margin-bottom: 50px;
+  margin: 20px auto;
+  background-color:#f0f0f0;
+  border-radius: 10px;
+  border:1px solid #000000;
+}
+
+.Containercarrera1{
+
+  width: 200px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  
+}
+.Containercarrera2{
+  
+  margin: 1px;
+  width: 400px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.Containercarrera3{
+  margin: 1px;
+  width: 200px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.Containercarrera4{
+  margin: 1px;
+  width: 200px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.Containercarrera5{
+    width: 1000px;
+    background-color: #f0f0f0;;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+/******************************* page inscripcion carrera ************************/
+
+.Containerform{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 350px;
+  margin-top: 100px;
+  height: auto;
+  width: 100%;
+  
+}
+
+#form {
+  padding: 50px auto;
+  border:1px solid #000000;
+  width: 900px 80%;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+#form legend{
+  font-weight:bold;
+  font-size:16px;
+  color: #4070f4;
+}
+#form ol{
+  list-style:none;
+}
+#form ol li{
+  padding-bottom:px;
+}
+#form ol li label{
+  width:200px;
+  float:left;
+  text-align:left;
+}
+#form input[type=text] {
+  border:1px solid #CCCCCC;
+  width: 350px;
+  border-radius: 5px;
+}
+#form input.btn {
+  padding:5px;
+  color:#FFFFFF;
+  background-color:#4070f4;
+  border:1px solid #000000;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.btn {
+  padding:5px;
+  color:#FFFFFF;
+  background-color:#4070f4;
+  border:1px solid #000000;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+
+
+/* Footer */
+.footer {
+	margin-bottom: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-bottom: 1.5px solid #d1d0d0;
+  border-top: 1px solid #d1d0d0;
+  font-size: 9px;
+
+}
+
+table {
+font-size: 14px;
+border-collapse: collapse;
+background:#f0f0f0;
+border-radius: 5px;
+}
+
+thead {
+  color: white;
+  background-color: #4070f4;
+
+}
+
+th {
+  padding: 15px 40px;
+  align-items: center;
+  text-align: center;
+}
+/****** short the col # **********/
+.diaz {
+  padding: 15px 5px;
+}
+td {
+  text-align: center;
+  padding:  15px 15px;
+  border-bottom: solid 2px #FFFFFF;
+}
+tbody tr:hover {
+  background-color: #FFFFFF;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .row, .navbar  {   
+    flex-direction: column;
+  }
+}

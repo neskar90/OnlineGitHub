@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion contra el cáncer de testículo</title>
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script >
+	
+	function llamada(){
+		fetch('GestionUsuario?op=1')
+		.then(response => response.json())
+		.then(data => pintarTabla(data))	
+	}
+	
+	function borrar(id) {
+		
+		if(confirm("Seguro que quieres borrar")) {
+			fetch('GestionUsuario?id='+id+'&op=3')
+		.then(response => response.json())
+		.then(data => pintarTabla(data))
+		}else {
+			
+		}
+	}
+	function pintarTabla(datos){
+		let html = "<table>";
+		html +="<thead>"
+		html +="<th>#</th>";
+		html +="<th>nombre</th>";
+		html +="<th>apellidos</th>";
+		html +="<th>mail</th>";
+		html +="<th></th>";
+		html +="<th></th>";
+		html +="</thead>"
+		for(let i=0;i<datos.length;i++){	
+						
+				html +="<tr><td>"+datos[i].id+"</td>";
+				html += "<td>"+datos[i].nombre+"</td>";
+				html += "<td>"+datos[i].apellidos+"</td>";
+				html += "<td>"+datos[i].mail+"</td>";
+				html += "<td><a href='InscripcionUsuario.html?id="+datos[i].id+"&op=2'>Editar</a></td><td> <a href='javascript:borrar("+datos[i].id+")'>Borrar</a></td>";
+				html +="</tr>";	
+				html +="</tr>";
+		}	
+		html +="</table>";
+		document.getElementById("listado5").innerHTML = html;
+		console.log(datos);
+	}
+	
+	function busquedaPorTipo(tipoUsuario){
+		
+		fetch('GestionUsuario?op=4&tipoUsuario='+tipoUsuario)
+			.then(response => response.json())
+			.then(data => pintarTabla(data))
+		
+	}
+	
+	
+    window.onload = function() {
+    llamada();
+    } 
+    
+	</script>
+	
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="banner">
+    <img src="img/Logo.png" alt="logoheader" class="headerlogo">
+  </div>
+  
+  
+  <!-- Navigation Bar -->
+  
+  <div class="navbar">
+  	<a href="index.html">Inicio</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="TiendaSolidaria.html">Tienda Solidaria</a>
+    <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
+    <a href="Login.html">Iniciar session</a>
+    <a href="InscripcionUsuario.html">Registrame</a>
+    <a href="GestorPortal.html">GestorPortal</a>
+  </div>
+  
+  <!-- main content carrera -->
+	</div>
+	<h1 class="h1">Lista Usuarios</h1>
+	</div>
+  
+  <section>
+	    
+		
+		<form name="Listado" method="get" action="GestionUsuario?op=1&op=4">
+				
+				<select name="tipoUsuario" onchange="busquedaPorTipo(this.value)">
+					<option value="0">...</option>
+					<option value="1">Usuarios</option>
+					<option value="9">Administrador</option>					
+				</select>
+			</form>
+ 
+			<div id="listado5"> </div>
+			
+			
+			
+		</div>
+	
+</section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
+  </div>
+  
+</body>
+</html>

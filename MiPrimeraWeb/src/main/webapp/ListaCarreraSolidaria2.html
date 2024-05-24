@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asociacion contra el cáncer de testículo</title>
+<link rel="stylesheet" href="css/style.css">
+
+<script type="text/javascript">
+	
+	function llamada(){
+		fetch('GestionCarrera?op=1')
+		.then(response => response.json())
+		.then(data => pintarTabla(data))	
+	}
+	
+	function pintarTabla(datos){
+		
+		
+		let html = "<table>";
+		html +="<thead>"
+		html +="<th>Fecha</th>";
+		html +="<th>Nombre</th>";
+		html +="<th>Ciudad</th>";
+		html +="<th>Distancia</th>";
+		html +="<th></th>";
+		html +="</thead>"
+		for(let i=0;i<datos.length;i++){	
+
+				html +="<td>"+datos[i].fechaCarrera+"</td>";
+				html +="<td>"+datos[i].nombreCarrera+"</td>";
+				html +="<td>"+datos[i].ciudadCarrera+"</td>";
+				html +="<td>"+datos[i].distanciaCarrera+"</td>";
+
+				html +="<td><a href='InscripcionCarrera.html'>Inscripción</a></td>";
+
+				
+				html +="</tr>";	
+		}
+		
+		html +="</table>";
+	
+		document.getElementById("listado").innerHTML = html;
+		console.log(datos);		
+	}
+	
+	/*function pintarTabla(datos){
+		
+		
+		let html = "<div class='Containercarrera'>";
+		
+		for(let i=0;i<datos.length;i++){			
+			html +="<div class='Containercarrera1'>";
+	        html +="<p class='fcarrera'>"+datos[i].fechaCarrera+"</p";
+	        html+="</div>"
+	        html +="<div class='Containercarrera2'>";
+	        html +="<p class='NombreCarrera'>"+datos[i].nombreCarrera+"</p";
+	        html+="</div>"
+	        html +="<div class='Containercarrera3'>";
+	        html +="<p class='CiudadCarrera'>"+datos[i].ciudadCarrera+"</p";
+	        html+="</div>"
+	        html +="<div class='Containercarrera4'>";
+	        html +="<p class='DistanciaCarrera'>"+datos[i].distanciaCarrera+"</p";
+	        html +="</div>";
+	        
+			
+		}	
+		html +="</div>";
+		document.getElementById("listado").innerHTML = html;
+		console.log(datos);
+	}*/
+	
+   window.onload = function() {
+    
+    	llamada();
+    } 
+	
+    
+	</script>
+
+</head>
+<body>
+
+	<!-- Header -->
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+	<!-- Navigation Bar -->
+
+  <div class="navbar">
+  	<a href="index.html">Inicio</a>
+    <a href="noticias.html">Noticias</a>
+	<a href="ListaColaboradores.html">Colaboradores</a>
+    <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
+    <a href="Login.html">Iniciar session</a>
+    <a href="InscripcionUsuario.html">Registrame</a>
+  </div>
+	<h1 class="h1">Lista carreras</h1>
+	</div>
+	<section>
+		<div  id="listado"></div>
+	</section>
+
+
+
+	<!-- Footer -->
+	<div class="footer">
+		<h2>2024 Asociacion contra el cáncer de testículo - © Copyright
+			2024 - Diseñado por Renaud Bronchart</h2>
+	</div>
+
+</body>
+</html>

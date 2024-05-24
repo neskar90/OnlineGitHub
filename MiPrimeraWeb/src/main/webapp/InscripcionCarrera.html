@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion contra el cáncer de testículo</title>
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script>
+    
+	function llamada(id, op){
+		fetch('GestionCorredores?id='+id+"&op="+op)
+		.then(response => response.json())
+		.then(data => pintarFormulario(data))
+	
+	}
+	
+	function getParameterByName(name) {
+			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			    results = regex.exec(location.search);
+			    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+	
+		 function validarFormulario(){
+			   
+			    let nombre = document.getElementById('nombre').value;
+				let apellidos = document.getElementById('apellidos').value;
+	   		    let mail = document.getElementById('mail').value;
+	   		 	let dni = document.getElementById('dni').value;
+	   		 	let fechanacimiento = document.getElementById('fechanacimiento').value;
+	   			let sexo = document.getElementById('sexo').value;
+	   			let direccion = document.getElementById('direccion').value;
+	   			let ciudad = document.getElementById('ciudad').value;
+	   			let telefono = document.getElementById('telefono').value;
+
+				let ok = true;
+				if(nombre == ""){
+					ok = false;
+					document.getElementById('nombre').style.background = "red";
+				}
+				
+				if(apellidos == ""){
+					ok = false;
+					document.getElementById('apellidos').style.background = "red";
+				}
+				
+				if(mail == ""){
+					ok = false;
+					document.getElementById('mail').style.background = "red";
+				}
+				
+				if(dni == ""){
+					ok = false;
+					document.getElementById('dni').style.background = "red";
+				}
+				
+				if(fechanacimiento == ""){
+					ok = false;
+					document.getElementById('fechanacimiento').style.background = "red";
+				}
+				
+				if(sexo == ""){
+					ok = false;
+					document.getElementById('sexo').style.background = "red";
+				}
+				
+				if(direccion == ""){
+					ok = false;
+					document.getElementById('direccion').style.background = "red";
+				}
+				
+				if(ciudad == ""){
+					ok = false;
+					document.getElementById('ciudad').style.background = "red";
+				}
+				
+				
+				if(telefono == ""){
+					ok = false;
+					document.getElementById('telefono').style.background = "red";
+				}
+				
+				if(ok == true){
+					
+					document.getElementById("ListaCorredoresGestor").submit();
+					
+				}
+				
+		
+					   
+			}
+	   		 
+	 		function pintarFormulario(datos){
+	 			
+	 			document.getElementById("id").value = datos.id;
+				document.getElementById("nombre").value = datos.nombre;
+				document.getElementById("apellidos").value = datos.apellidos;
+				document.getElementById("mail").value = datos.mail;
+				document.getElementById("dni").value = datos.dni;
+				document.getElementById("fechanacimiento").value = datos.fechanacimiento;
+				document.getElementById("sexo").value = datos.sexo;
+				document.getElementById("direccion").value = datos.direccion;
+				document.getElementById("ciudad").value = datos.ciudad;
+				document.getElementById("telefono").value = datos.telefono;
+				
+			}
+	    
+	 		window.onload = function(){
+				let id = getParameterByName("id");
+				let op = getParameterByName("op");
+				llamada(id,op);
+				
+			}
+	</script>
+</head>
+<body>
+
+<header><!-- Header -->
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+<header>
+  
+  
+<nav><!-- Navigacion bar menu  -->
+  <div class="navbar">
+  	<a href="index.html">Inicio</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="TiendaSolidaria.html">Tienda Solidaria</a>
+    <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
+    <a href="Login.html">Iniciar session</a>
+    <a href="InscripcionUsuario.html">Registrame</a>
+  </div>
+</nav>  
+  
+
+
+        <h1 class="h2">Inscripción carrera contra el cáncer de testículo</h1>  
+          
+
+            <div class="Containerform">
+                    <form name="frm" method="post" action="GestionCorredores" id="ListaCorredoresGestor">
+                    <fieldset id="form">
+                    <legend>Datos personales</legend>
+                    <ol>
+                    	<input type="hidden" id="id" name="id">
+                        <li><label>Nombre: </label><input type="text" id="nombre" name="nombre" size="25" /></li>
+                        <li><label>Apellidos: </label><input type="text" id="apellidos"  name="apellidos" size="25"  /></li>
+                        <li><label>Mail: </label><input type="text" name="mail" id="mail" size="25"  /></li>
+                        <li><label>DNI</label> <input type="text"  name="dni" id="dni" ></li>
+                        <li><label>Fecha nacimiento: </label> <input type="date" id="fechanacimiento" name="fechanacimiento" ></li>
+                          <!-- cambiar type de "sexo" radio si me deja tiempo -->
+						<li><label>Sexo: </label> <input type="text" placeholder="Hombre / Mujer" id="sexo"  name="sexo" size="10" ></li>
+                        <li><label>Dirección: </label><input type="text" id="direccion"  name="direccion"  size="45"  /></li> 
+                        <li><label>Ciudad: </label><input type="text" id="ciudad" name="ciudad" size="45"  /></li>  
+                        <li><label>Teléfono: </label> <input type="text" id="telefono"  name="telefono" ></li>
+                    </ul>
+                        <p align="center"><input type="submit" name="submit" class="btn"  onclick="validarFormulario()" value="Enviar"></p>
+                    </fieldset>
+                    </form>
+            </div>  
+
+  <!-- Footer -->
+  <div class="footer">
+    <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
+  </div>
+  
+
+
+
+</body>
+</html>

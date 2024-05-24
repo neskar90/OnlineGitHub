@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion contra el cáncer de testículo</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script>
+    
+	function llamada(id, op){
+		fetch('GestionUsuario?id='+id+"&op="+op)
+		.then(response => response.json())
+		.then(data => pintarFormulario(data))
+	
+}
+	
+	 /* para otener el valor de un parametro en el GET  */
+		function getParameterByName(name) {
+			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			    results = regex.exec(location.search);
+			    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+   		 function validarFormulario(){
+			   
+   		    let nombre = document.getElementById('nombre').value;
+   		 	let apellidos = document.getElementById('apellidos').value;
+			let mail = document.getElementById('mail').value;
+   		    
+
+			let ok = true;
+			if(nombre == ""){
+				ok = false;
+				document.getElementById('nombre').style.background = "red";
+			}
+			
+			if(apellidos == ""){
+				ok = false;
+				document.getElementById('apellidos').style.background = "red";
+			}
+			
+			if(mail == ""){
+				ok = false;
+				document.getElementById('mail').style.background = "red";
+			}
+			
+			
+			if(ok == true){
+				
+				document.getElementById("ListaUsuariosGestor").submit();
+				
+			}
+				   
+		}
+   		 
+ 		function pintarFormulario(datos){
+			
+ 			document.getElementById("id").value = datos.id;
+			document.getElementById("nombre").value = datos.nombre;
+			document.getElementById("apellidos").value = datos.apellidos;
+			document.getElementById("mail").value = datos.mail;
+		}
+    
+ 		window.onload = function(){
+			let id = getParameterByName("id");
+			let op = getParameterByName("op");
+			llamada(id,op);
+			
+		}
+</script>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="banner">
+    <img src="img/Logo.png" alt="logoheader" class="headerlogo">
+  </div>
+  
+  
+  <!-- Navigation Bar -->
+  <div class="navbar">
+  	<a href="index.html">Inicio</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="ListaColaboradores.html">Colaboradores</a>
+    <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
+    <a href="Login.html">Iniciar session</a>
+    <a href="InscripcionUsuario.html">Registrame</a>
+  </div>
+  
+  <!-- main content anadir carrera -->
+
+        <h1 class="h2">inscripción</h1>  
+            <div class="Containerform">
+                <form name="frm" method="post" action="GestionUsuario" id="ListaUsuariosGestor">
+                    <fieldset id="form">
+                    <legend>Datos</legend>
+                    <ol>
+                    	<input type="hidden" id="id" name="id">
+                        <li><label>Nombre: </label><input type="text" id="nombre" name="nombre" size="25" /></li>
+                        <li><label>Apellidos: </label><input type="text" id="apellidos"  name="apellidos" size="25"  /></li>
+                        <li><label>Mail: </label><input type="text" name="mail" id="mail" size="25"  /></li>
+						<li> <select name="permiso">
+					
+						<option value="0">...</option>
+						<option value="1">Usuario registrado</option>
+						<option value="9">Usuario administrador</option>
+
+					</select></li>
+                    </ul>
+                    <p align="center"> <input type="submit" name="submit" class="btn"  onclick="validarFormulario()" value="Enviar"></p>
+                    </fieldset>
+                    </form>
+            </div>  
+            
+            
+
+  <!-- Footer -->
+  <div class="footer">
+    <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
+  </div>
+
+</body>
+</html>
