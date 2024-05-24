@@ -9,20 +9,34 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 
 import modelo.Noticia;
-
+/**
+ * Clase daoNoticia
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
 
 public class daoNoticia {
 
-	//Patron Singelton aun mejor.
+	/**
+	 * Generar un atributo tipo Connection llamado con
+	 */
+	
 	
 	public static Connection con = null;
+	
+	/**
+	 * Constructor daoNoticia para que se hace la connexion
+	 */
+	
 	
 	public daoNoticia() throws SQLException {
 		
 		this.con = DBConexion.getConexion();
  		
 	}
-	
+	/**
+	 * Metodo de insercion en la BDD  del objeto Noticia
+	 */
 	public void insertar(Noticia no) throws SQLException{
 		
 		String sql = "INSERT INTO noticias (titulo,descripcion) VALUES (?,?)";
@@ -33,7 +47,10 @@ public class daoNoticia {
 		int filas = ps.executeUpdate();
 		ps.close();
 	}
-	
+	/**
+	 * Metodo para buscar el ID
+	 * @return tipo int
+	 */
 	public Noticia obtenerPorID(int idNoticia) throws SQLException {
 		String sql = " SELECT * FROM noticias where idNoticia=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -48,6 +65,9 @@ public class daoNoticia {
 		return no;
 		
 	}
+	/**
+	 * Metodo para actualizar 
+	 */
 	
 	public void actualizar(Noticia no) throws SQLException {
 		String sql = " UPDATE  noticias SET titulo = ?, descripcion = ? WHERE idNoticia = ?";
@@ -59,7 +79,9 @@ public class daoNoticia {
 		int filas = ps.executeUpdate();
 		ps.close();
 	}
-	
+	/**
+	 * Metodo para borrar 
+	 */
 	public void borrar(int idNoticia) throws SQLException {
 		
 		String sql = "DELETE FROM noticias WHERE idNoticia=?";
@@ -69,7 +91,10 @@ public class daoNoticia {
 		int filas = ps.executeUpdate();
 		ps.close();
 	}
-	
+	/**
+	 * Metodo para Listar las carreras
+	 * @return listacarreras
+	 */
 	public ArrayList<Noticia> listar() throws SQLException {
 		String sql = " SELECT * FROM noticias";
 		
@@ -90,7 +115,10 @@ public class daoNoticia {
 	}
 	
 
-	
+	/**
+	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
+	 * @return tipo Json
+	 */
 	
 	public String listarJson() throws SQLException {
 		

@@ -10,12 +10,23 @@ import com.google.gson.Gson;
 
 import modelo.Carrera;
 
+/**
+ * Clase daoCarrera
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
 
 public class daoCarrera {
-
-	//Patron Singelton aun mejor.
+	
+	/**
+	 * Generar un atributo tipo Connection llamado con
+	 */
 	
 	public static Connection con = null;
+	
+	/**
+	 * Constructor DaoCarrera para que se hace la connexion
+	 */
 	
 	public daoCarrera() throws SQLException {
 		
@@ -23,6 +34,9 @@ public class daoCarrera {
  		
 	}
 	
+	/**
+	 * Metodo de insercion en la BDD  del objeto Carrera
+	 */
 	public void insertar(Carrera c) throws SQLException{
 		
 		String sql = "INSERT INTO carreras (fechaCarrera, nombreCarrera,ciudadCarrera,distanciaCarrera) VALUES (?,?,?,?)";
@@ -35,6 +49,12 @@ public class daoCarrera {
 		int filas = ps.executeUpdate();
 		ps.close();
 	}
+	
+	
+	/**
+	 * Metodo para buscar el ID
+	 * @return tipo int
+	 */
 	
 	public Carrera obtenerPorID(int idCarrera) throws SQLException {
 		String sql = " SELECT * FROM carreras where idCarrera=?";
@@ -51,6 +71,11 @@ public class daoCarrera {
 		
 	}
 	
+	/**
+	 * Metodo para actualizar 
+	 */
+	
+	
 	public void actualizar(Carrera c) throws SQLException {
 		String sql = " UPDATE carreras SET fechaCarrera=?, nombreCarrera=?, ciudadCarrera=?, distanciaCarrera=? WHERE idCarrera=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -65,6 +90,10 @@ public class daoCarrera {
 		ps.close();
 	}
 	
+	/**
+	 * Metodo para borrar 
+	 */
+	
 	public void borrar(int idCarrera) throws SQLException {
 		
 		String sql = "DELETE FROM carreras WHERE idCarrera=?";
@@ -76,6 +105,7 @@ public class daoCarrera {
 	}
 	/**
 	 * Metodo para Listar las carreras
+	 * @return listacarreras
 	 */
 	
 	public ArrayList<Carrera> listar() throws SQLException {
@@ -98,6 +128,7 @@ public class daoCarrera {
 	
 	/**
 	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
+	 * @return tipo Json
 	 */
 	
 	public String listarJson() throws SQLException {

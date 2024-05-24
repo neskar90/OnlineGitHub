@@ -13,16 +13,32 @@ import modelo.Usuario;
 
 
 
-// TAD-DAO
+/**
+ * Clase Usuario
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
 public class daoUsuario {
 
+	/**
+	 * Generar un atributo tipo Connection llamado con
+	 */
 	
 	public static Connection con = null;
+	
+	/**
+	 * Constructor DaoCarrera para que se hace la connexion
+	 */
+	
 	
 	public daoUsuario() throws SQLException {
 		
 		this.con = DBConexion.getConexion();
 	}
+	
+	/**Metodo para verificar si existe el usuario
+	 * @return 
+	 */
 	
 	private boolean existe(Usuario u) {
 		
@@ -31,11 +47,10 @@ public class daoUsuario {
 	}
 	
 	
-	/**Metodo de inserción en la bd del objeto usuario
+	/**Metodo de insercion en la BDD del objeto usuario
 	 * 
-	 * @param u Objeto tipo usuarios
-	 * @throws SQLException
 	 */
+
 	public void insertar(Usuario u) throws SQLException {
 		
 		String sql = "INSERT INTO usuarios (nombre,apellidos,mail,permiso) VALUES (?,?,?,?) ";
@@ -50,6 +65,10 @@ public class daoUsuario {
 		
 	}
 	
+	/**
+	 * Metodo para actualizar 
+	 */
+	
 	public void actualizar(Usuario u) throws SQLException {
 		String sql = "UPDATE usuarios SET nombre=?,apellidos=?,mail=?,permiso=? WHERE id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -62,9 +81,10 @@ public class daoUsuario {
 		int filas = ps.executeUpdate();
 		ps.close();
 		
-		
-		
 	}
+	/**
+	 * Metodo para borrar 
+	 */
 	
 	public void borrar(int id) throws SQLException {
 		
@@ -75,6 +95,10 @@ public class daoUsuario {
 		ps.close();
 	}
 	
+	/**
+	 * Metodo para buscar el ID
+	 * @ el ID tipo entero 
+	 */
 	
 	public Usuario obtenerPorID(int id) throws SQLException {
 		
@@ -91,7 +115,10 @@ public class daoUsuario {
 		return u;
 	}
 	
-	
+	/**
+	 * Metodo para logear
+	 *@ el usuario 
+	 */
 	public Usuario logear(Usuario u, String pass) throws SQLException {
 		
 		
@@ -110,7 +137,10 @@ public class daoUsuario {
 		
 	}
 	
-
+	/**
+	 * Metodo para Listar los usuarios
+	 * @return usuario
+	 */
 	
 	public ArrayList<Usuario> listar() throws SQLException{
 		
@@ -119,10 +149,7 @@ public class daoUsuario {
 		ResultSet rs = ps.executeQuery();
 		
 		ArrayList<Usuario> ls = null;
-		/*
-		next-> 		  . 
-		null [4][5][6][7][8][7] null
-		*/
+
 		while(rs.next()) {	
 			if(ls == null) {
 				ls = new ArrayList<Usuario>();
@@ -136,10 +163,8 @@ public class daoUsuario {
 	
 	
 	/**
-	 * Metodo listas que<strong> retorna los usarios con el flitrado</strong> de tipo
-	 * @param tipo
-	 * @return
-	 * @throws SQLException
+	 * Metodo para Listar los usuarios con el filtro del permiso
+	 * @return usuario
 	 */
 	
 	public ArrayList<Usuario> listar(int tipo) throws SQLException{
@@ -150,10 +175,7 @@ public class daoUsuario {
 		ResultSet rs = ps.executeQuery();
 		
 		ArrayList<Usuario> ls = null;
-		/*
-		next-> 		  . 
-		null [4][5][6][7][8][7] null
-		*/
+
 		while(rs.next()) {	
 			if(ls == null) {
 				ls = new ArrayList<Usuario>();
@@ -165,7 +187,10 @@ public class daoUsuario {
 
 	}
 	
-
+	/**
+	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
+	 * @return tipoJson
+	 */
 	
 	public String listarJson() throws SQLException {
 		
@@ -177,6 +202,10 @@ public class daoUsuario {
 		return json;
 	
 	}
+	/**
+	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
+	 * @return tipo int 
+	 */
 	
 public String listarJson(int tipo) throws SQLException {
 		

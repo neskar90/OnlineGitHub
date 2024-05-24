@@ -10,18 +10,30 @@ import com.google.gson.Gson;
 
 import modelo.Colaborador;
 
-
+/**
+ * Clase daoColaborador
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
 public class daoColaborador {
 
-	//Patron Singelton aun mejor.
+	/**
+	 * Generar un atributo tipo Connection llamado con
+	 */
 	
 	public static Connection con = null;
+	/**
+	 * Constructor daoColaborador para que se hace la connexion
+	 */
 	
 	public daoColaborador() throws SQLException {
 		
 		this.con = DBConexion.getConexion();
  		
 	}
+	/**
+	 * Metodo de insercion en la BDD  del objeto Colaborador
+	 */
 	
 	public void insertar(Colaborador co) throws SQLException{
 		
@@ -37,6 +49,10 @@ public class daoColaborador {
 		ps.close();
 	
 	}
+	/**
+	 * Metodo para buscar el ID
+	 * @return tipo int
+	 */
 	
 	public Colaborador obtenerPorID(int idColaborador) throws SQLException {
 		String sql = " SELECT * FROM Colaboradores where idColaboradores=?";
@@ -52,6 +68,9 @@ public class daoColaborador {
 		return co;
 		
 	}
+	/**
+	 * Metodo para actualizar 
+	 */
 	public void actualizar(Colaborador co) throws SQLException {
 		String sql = " UPDATE Colaboradores SET nombre=?, apellidos=?, puesto=?, foto=? WHERE idColaboradores=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -66,6 +85,10 @@ public class daoColaborador {
 		
 	}
 	
+	/**
+	 * Metodo para borrar 
+	 */
+	
 	public void borrar(int idColaborador) throws SQLException {
 		
 		String sql = "DELETE FROM Colaboradores WHERE idColaboradores=?";
@@ -75,7 +98,10 @@ public class daoColaborador {
 		int filas = ps.executeUpdate();
 		ps.close();
 	}
-	
+	/**
+	 * Metodo para Listar las carreras
+	 * @return listacarreras
+	 */
 	
 	public ArrayList<Colaborador> listar() throws SQLException {
 		String sql = " SELECT * FROM Colaboradores";
@@ -96,6 +122,10 @@ public class daoColaborador {
 		return co;
 	}
 	
+	/**
+	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
+	 * @return tipo Json
+	 */
 	
 	public String listarJson() throws SQLException {
 		
