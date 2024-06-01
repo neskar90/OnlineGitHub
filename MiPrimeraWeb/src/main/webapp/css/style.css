@@ -156,16 +156,7 @@ section{
   justify-content: center;
 }
 
-.card-container {
-  margin-top: 150px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  height: auto;
-  width: 100%;
-  background-color:#fff;
-  margin-bottom: 150px;
-}
+
 
 /******************Noticias***********************/
   .cardnoticia {
@@ -178,6 +169,7 @@ section{
     border: 1px solid #000000;
     border-radius: 10px;
   }
+
 
 .containertitulonoticia{
     background-color: #4070f4;
@@ -320,9 +312,13 @@ tbody tr:hover {
   background-color: #FFFFFF;
 }
 
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+
 @media screen and (max-width: 600px) {
-  .row, .navbar  {   
+  	.navbar  {   
     flex-direction: column;
+  }
+  
+   .cardnoticia {
+    width: 300px;
   }
 }
