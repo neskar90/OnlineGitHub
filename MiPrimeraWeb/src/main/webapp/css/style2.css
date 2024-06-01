@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* configuration body */
+body {
+  font-family: Arial;
+  margin: 0;
+  background-color: #ffffff;
+}
+
+/* Header and the logo */
+.banner {
+  padding: 30px;
+  text-align: center;
+  background: #fff;;
+  color: white;
+}
+
+.headerlogo{
+  width: 50%;
+  height: auto;
+}
+
+/* the navigation bar */
+.navbar {
+  margin-bottom: 1px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  border-bottom: 1.5px solid #d1d0d0;
+  border-top: 3px solid #d1d0d0;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  color: rgb(0, 0, 0);
+  padding: 20px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Change color on text nav */
+.navbar a:hover {
+  color: #4070f4;
+  font-weight: bold;
+}
+
+/******************Tienda **************************/
+
+.headtienda {
+ margin-top: 50px;
+flex-direction: column;
+align-items: center;
+width: auto;
+background-color: rgb(255, 255, 255);
+/* text head page tienda*/
+}
+.h1 {
+  text-align: center;
+  margin-top: 50px;
+  justify-content: right;
+  margin-bottom: 30px;
+
+}
+
+.h2 {
+  text-align: center;
+  margin-top: 50px;
+  justify-content: right;
+  margin-bottom: 30px;
+  color: #4070f4;
+}
+
+p{
+  
+  text-align: center;
+  font-size: 18px;
+}
+
+
+/***************  container pagina tienda solidaria*//* configuration card*//* card container********************/
+.card-container {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  background-color:#fff;
+  margin-bottom: 150px;
+}
+.card {
+  width: 300px;
+  background-color: #f0f0f0;;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  margin: 20px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.card img{
+  width: 100%;
+  height: auto;
+}
+.card content {
+  padding: 15px;
+  width: auto;
+}
+.card-content h3{
+  font-size: 28px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.card-content p{
+  color: #666;
+  font-size: 15px;
+  line-height: 1.3;
+  text-align: center;
+}
+.card-content .cart-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  max-width:250px;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  border-radius: 5px;
+  margin: 25px 25px;
+  background-color: #4070f4;
+}
+
+/**********************Pagina ficha producto*******************/
+
+.containerfichaproducto {
+max-width: 75%;
+margin: auto;
+height: 800px;
+margin-top: 5%;
+background-color: #f0f0f0;
+border:1px solid #000000;
+border-radius: 10px;
+}
+.leftfichaproducto, .rightrightfichaproducto{
+  width: 50%;
+  padding: 30px;
+}
+.flex {
+  display: flex;
+  justify-content : space-between;
+}
+.flex1 {
+  display: flex;
+}
+
+.ImageFichaProducto {
+  width: auto;
+  height: auto;
+}
+.rightrightfichaproducto{
+  padding: 50px 100px 50px 50px;
+}
+h3{
+  color :4070f4;
+  margin: 20px 0 20px 0 ;
+  font-size: 25px;
+}
+
+.descripcionfichaproducto {
+  margin: 20px 0 50px 0;
+  line-height: 25px;
+}
+.add label,
+.add span {
+  background: none;
+  border: 1px solid #c1908b;
+  text-align: center;
+  line-height: 25px;
+}
+
+.add label{
+padding: 10px 30px 0 20px;
+border-radius: 50px;
+line-height: 25px;
+}
+
+/******************************* page lista carrera ************************/
+
+section{
+  margin-top: 150px;
+  align-items: center;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 150px;
+  justify-content: center;
+}
+
+
+.Containercarrera{
+  align-items: center;
+  display: flex;
+  height: 70px;
+  width: 1000px;
+  display: flex;
+  margin-bottom: 50px;
+  background-color:#f0f0f0;
+  border-radius: 10px;
+  border:1px solid #000000;
+}
+
+.Containercarrera1{
+
+  width: 200px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  
+}
+.Containercarrera2{
+  
+  margin: 1px;
+  width: 400px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.Containercarrera3{
+  margin: 1px;
+  width: 200px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.Containercarrera4{
+  margin: 1px;
+  width: 200px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.Containercarrera5{
+    width: 1000px;
+    background-color: #f0f0f0;;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    margin: 20px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+/******************************* page inscripcion carrera ************************/
+
+.Containerform{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-bottom: 350px;
+  margin-top: 100px;
+  flex-wrap: wrap;
+}
+
+#form {
+  padding : 50px;
+  border:1px solid #000000;
+  width:800px;
+  margin:auto;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+#form legend{
+  font-weight:bold;
+  font-size:16px;
+  color: #4070f4;
+}
+#form ol{
+  list-style:none;
+}
+#form ol li{
+  padding-bottom:px;
+}
+#form ol li label{
+  width:200px;
+  float:left;
+  text-align:left;
+}
+#form input[type=text] {
+  border:1px solid #CCCCCC;
+  width: 350px;
+  border-radius: 5px;
+}
+#form input.btn {
+  padding:5px;
+  color:#FFFFFF;
+  background-color:#4070f4;
+  border:1px solid #000000;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.btn {
+  padding:5px;
+  color:#FFFFFF;
+  background-color:#4070f4;
+  border:1px solid #000000;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  border-bottom: 1.5px solid #d1d0d0;
+  border-top: 1px solid #d1d0d0;
+  font-size: 9px;
+
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .row, .navbar  {   
+    flex-direction: column;
+  }
+}

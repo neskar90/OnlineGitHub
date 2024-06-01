@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion contra el cáncer de testículo</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script> <!-- mejor linkear como CSS -->
+    
+	function llamada(idCarrera, op){
+		fetch('GestionCarrera?idCarrera='+idCarrera+"&op="+op)
+		.then(response => response.json())
+		.then(data => pintarFormulario(data))
+	
+}
+	
+	 /* para otener el valor de un parametro en el GET  */
+		function getParameterByName(name) {
+			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			    results = regex.exec(location.search);
+			    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+   		function validarFormulario(){
+			   
+		    let fechaCarrera = document.getElementById('fechaCarrera').value;
+			let nombreCarrera = document.getElementById('nombreCarrera').value;
+   		    let ciudadCarrera = document.getElementById('ciudadCarrera').value;
+   		 	let distanciaCarrera = document.getElementById('distanciaCarrera').value;
+
+			let ok = true;
+			if(fechaCarrera == ""){
+				ok = false;
+				document.getElementById('fechaCarrera').style.background = "red";
+			}
+			
+			if(nombreCarrera == ""){
+				ok = false;
+				document.getElementById('nombreCarrera').style.background = "red";
+			}
+			
+			if(ciudadCarrera == ""){
+				ok = false;
+				document.getElementById('ciudadCarrera').style.background = "red";
+			}
+			
+			if(distanciaCarrera == ""){
+				ok = false;
+				document.getElementById('distanciaCarrera').style.background = "red";
+			}
+			
+			if(ok == true){
+				
+				document.getElementById("ListaCarreraGestor").submit();
+				
+			}
+				   
+		}
+   		 
+ 		function pintarFormulario(datos){
+			
+ 			document.getElementById("idCarrera").value = datos.idCarrera;
+			document.getElementById("fechaCarrera").value = datos.fechaCarrera;
+			document.getElementById("nombreCarrera").value = datos.nombreCarrera;
+			document.getElementById("ciudadCarrera").value = datos.ciudadCarrera;
+			document.getElementById("distanciaCarrera").value = datos.distanciaCarrera;
+		}
+    
+ 		window.onload = function(){
+			let idCarrera = getParameterByName("idCarrera");
+			let op = getParameterByName("op");
+			llamada(idCarrera,op);
+			
+		}
+</script>
+</head>
+<body>
+
+  <!-- cabecera de nuestra pagina -->	
+<header>
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+<header>
+  
+  
+  <!-- menu de nuestra pagina -->
+  <div class="navbar">
+   	<a href="index.html">Inicio</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="TiendaSolidaria.html">Tienda Solidaria</a>
+    <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
+    <a href="GestorPortal.html">GestorPortal</a>
+  </div>
+  
+        <h1 class="h2">Añadir Carrera</h1>  
+            <div class="Containerform">
+                <form name="frm" method="post" action="GestionCarrera" id="ListaCarreraGestor">
+                    <fieldset id="form">
+                    <legend>Carrera</legend>
+                    <ol>
+                    	<input type="hidden" id="idCarrera" name="idCarrera">
+                        <li><label>Fecha: </label><input type="date" id="fechaCarrera" name="fechaCarrera" size="25" /></li>
+                        <li><label>Nombre: </label><input type="text"  id="nombreCarrera" name="nombreCarrera" size="25" /></li>
+                        <li><label>Ciudad Carrera: </label><input type="text" id="ciudadCarrera" name="ciudadCarrera" size="25"  /></li>
+                        <li><label>Distancia Carrera: </label><input type="text" id="distanciaCarrera" name="distanciaCarrera" size="25"  /></li>
+                    </ul>
+                    <p align="center"> <input type="submit" name="submit" class="btn"  onclick="validarFormulario()" value="Enviar"></p>
+                    </fieldset>
+                    </form>
+</div>  
+            
+  <!-- pie pagina -->
+  <div class="footer">
+    <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
+  </div>
+
+</body>
+</html>

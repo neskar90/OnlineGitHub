@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asociacion contra el cáncer de testículo</title>
+<link rel="stylesheet" href="css/style.css">
+
+<script type="text/javascript">
+	
+	function llamada(){
+		fetch('GestionNoticia?op=1')
+		.then(response => response.json())
+		.then(data => pintarTabla(data))	
+	}
+
+	function pintarTabla(datos){
+
+		let html = "<div class='card-container'>";
+	
+		for(let i=0;i<datos.length;i++){	
+						
+			html += "<div class='cardnoticia'>";
+			html += "<div class='containertitulonoticia'><p>" + datos[i].titulo + "</p></div>";
+	        html += "<div class='containerdescripcionnoticia'><p>" + datos[i].descripcion + "</p></div>";
+	        html+="</div>"
+
+		}	
+		html +="</div>";
+		document.getElementById("listadonoticias").innerHTML = html;
+		console.log(datos);
+	}
+	
+    window.onload = function() {
+    
+    	llamada();
+    } 
+    
+</script>
+
+</head>
+<body>
+
+  <!-- cabecera de nuestra pagina -->	
+<header>
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+<header>
+
+
+  <div class="navbar">
+  	<a href="index.html">Inicio</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="ListaColaboradores.html">Colaboradores</a>
+    <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
+    <a href="Login.html">Iniciar session</a>
+    <a href="InscripcionUsuario.html">Registrame</a>
+  </div>
+  <h1 class="h1">Noticias</h1>
+ <section>
+  		<div id="listadonoticias"></div>
+ </section>          
+    
+	<div class="footer">
+		<h2>2024 Asociacion contra el cáncer de testículo - © Copyright
+			2024 - Diseñado por Renaud Bronchart</h2>
+	</div>
+
+</body>
+</html>

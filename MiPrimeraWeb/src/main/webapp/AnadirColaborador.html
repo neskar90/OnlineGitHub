@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asociacion contra el cáncer de testículo</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script type="text/javascript" > <!-- mejor linkear como CSS -->
+    
+	function llamada(idColaborador, op){
+		fetch('GestionColaboradorEditar?idColaborador='+idColaborador+"&op="+op)
+		.then(response => response.json())
+		.then(data => pintarFormulario(data))
+}
+    
+	 /* para otener el valor de un parametro en el GET  */
+		function getParameterByName(name) {
+			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			    results = regex.exec(location.search);
+			    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+		}
+   		function validarFormulario(){
+			   
+			let nombre = document.getElementById('nombre').value;
+   		    let apellidos = document.getElementById('apellidos').value;
+   		    let puesto = document.getElementById('puesto').value;
+
+			let ok = true;
+			
+			if(nombre == ""){
+				ok = false;
+				document.getElementById('nombre').style.background = "red";
+			}
+			
+			if(apellidos == ""){
+				ok = false;
+				document.getElementById('apellidos').style.background = "red";
+			}
+			
+				if(puesto == ""){
+				ok = false;
+				document.getElementById('puesto').style.background = "red";
+			}
+
+			if(ok == true){
+				
+				document.getElementById("ListaColaboradores").submit();
+				
+			}
+				   
+		}
+   		 
+ 		function pintarFormulario(datos){
+ 			document.getElementById("idColaborador").value = datos.idColaborador;
+			document.getElementById("nombre").value = datos.nombre;
+			document.getElementById("apellidos").value = datos.apellidos;
+			document.getElementById("puesto").value = datos.puesto;
+		}
+    
+ 		window.onload = function(){
+			let idColaborador = getParameterByName("idColaborador");
+			let op = getParameterByName("op");
+			llamada(idColaborador,op);
+		}
+</script>
+ 		
+    </script>
+</head>
+<body>
+
+  <!-- cabecera de nuestra pagina -->	
+<header>
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+<header>
+  
+ <!-- menu de nuestra pagina -->
+  <div class="navbar">
+    <a href="index.html">Inicio</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="ListaColaboradores.html">Colaboradores</a>
+    <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
+    <a href="GestorPortal.html">GestorPortal</a>
+  </div>
+  
+  <!-- main content anadir carrera -->
+
+        <h1 class="h2">Añadir Colaborador</h1>  
+
+            <div class="Containerform">
+                <form name="frm" method="post" action="GestionColaborador" id="ListaColaboradores" enctype="multipart/form-data" >
+                    <fieldset id="form">
+                    <legend>Colaborador</legend>
+                    <ol>
+                    	<input type="hidden" id="idColaborador" name="idColaborador">
+                        <li><label>Nombre: </label><input type="text" id="nombre"  name="nombre" size="25" /></li>
+                        <li><label>Apellidos: </label><input type="text" id="apellidos" name="apellidos" size="25" /></li>
+                        <li><label>Puesto: </label><input type="text" id="puesto" name="puesto" size="25" /></li>
+                        <li><label>Foto: </label><input type="file" id="foto" name="foto"></li>                      
+                    </ul>
+                      <p align="center"> <input type="submit" name="submit" class="btn"  onclick="validarFormulario()" value=Enviar></p>
+                    </fieldset>
+                    </form>
+            </div>  
+
+  <!-- pie pagina -->
+  <div class="footer">
+    <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
+  </div>
+  
+
+
+
+</body>
+</html>
