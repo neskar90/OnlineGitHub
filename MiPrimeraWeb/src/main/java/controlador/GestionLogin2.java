@@ -1,3 +1,10 @@
+/**
+ * Provee los servlets necesarios para correr la funcionalidad del controlador de la aplicacion 
+ */
+/**
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
 package controlador;
 
 import jakarta.servlet.ServletException;
@@ -8,6 +15,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import modelo.Usuario;
 
 import java.io.IOException;
@@ -33,6 +42,7 @@ public class GestionLogin2 extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,14 +50,21 @@ public class GestionLogin2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		 sesion = request.getSession();
+		 
+
+			sesion.invalidate();
+		
+		
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	
+		PrintWriter out = response.getWriter();
 		String mail = request.getParameter("mail");
 		String pass = getMD5(request.getParameter("pass"));
 		
@@ -76,16 +93,14 @@ public class GestionLogin2 extends HttpServlet {
 				
 				} else if (u.getPermiso() == 1 ) {
 					
-					response.sendRedirect("index.html");
+					response.sendRedirect("Miperfil.html?id=2&op=2");
 				}
 			
-			}else {
-				
-				response.sendRedirect("Login.html");
-
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			out.println("Error login");
+			response.sendRedirect("Loginsierror.html");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

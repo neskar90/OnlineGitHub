@@ -1,4 +1,3 @@
-
 package dao;
 
 import java.sql.Connection;
@@ -12,12 +11,12 @@ import com.google.gson.Gson;
 import modelo.Usuario;
 
 
-
 /**
- * Clase Usuario
- * @author: Renaud Bronchart
- * @version: 15/05/2024 v1.0
+ * Clase dao daoUsuario
+ * @author Renaud Bronchart
+ * @version 15/05/2024 v1.0
  */
+
 public class daoUsuario {
 
 	/**
@@ -28,6 +27,7 @@ public class daoUsuario {
 	
 	/**
 	 * Constructor DaoCarrera para que se hace la connexion
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	
@@ -37,7 +37,7 @@ public class daoUsuario {
 	}
 	
 	/**Metodo para verificar si existe el usuario
-	 * @return 
+	 * @return true : existe / false : no existe
 	 */
 	
 	private boolean existe(Usuario u) {
@@ -48,7 +48,8 @@ public class daoUsuario {
 	
 	
 	/**Metodo de insercion en la BDD del objeto usuario
-	 * 
+	 * @param u Objeto tipo usuario 
+	 * @throws SQLException proponga los errores si ocurre un error
 	 */
 
 	public void insertar(Usuario u) throws SQLException {
@@ -67,6 +68,8 @@ public class daoUsuario {
 	
 	/**
 	 * Metodo para actualizar 
+	 * @param u Objeto tipo usuario 
+	 * @throws SQLException proponga los errores si ocurre un error
 	 */
 	
 	public void actualizar(Usuario u) throws SQLException {
@@ -84,6 +87,8 @@ public class daoUsuario {
 	}
 	/**
 	 * Metodo para borrar 
+	 * @param id borrar usuario con el id
+	 * @throws SQLException proponga los errores si ocurre un error
 	 */
 	
 	public void borrar(int id) throws SQLException {
@@ -97,7 +102,9 @@ public class daoUsuario {
 	
 	/**
 	 * Metodo para buscar el ID
-	 * @ el ID tipo entero 
+	 * @param id buscar el id de Usuario
+	 * @return id return id del usuario tipo entero
+	 * @throws SQLException proponga los errores si ocurre un error
 	 */
 	
 	public Usuario obtenerPorID(int id) throws SQLException {
@@ -117,7 +124,8 @@ public class daoUsuario {
 	
 	/**
 	 * Metodo para logear
-	 *@ el usuario 
+	 *@return u el usuario 
+	 *@throws SQLException proponga los errores si ocurre un error
 	 */
 	public Usuario logear(Usuario u, String pass) throws SQLException {
 		
@@ -139,7 +147,9 @@ public class daoUsuario {
 	
 	/**
 	 * Metodo para Listar los usuarios
+	 * @param tipo usuario
 	 * @return usuario
+	 * @throws SQLException proponga los errores si ocurre un error
 	 */
 	
 	public ArrayList<Usuario> listar() throws SQLException{
@@ -164,7 +174,9 @@ public class daoUsuario {
 	
 	/**
 	 * Metodo para Listar los usuarios con el filtro del permiso
-	 * @return usuario
+	 * @param tipo usuario
+	 * @return tipo usuario
+	 * @throws SQLException proponga los errores si ocurre un error
 	 */
 	
 	public ArrayList<Usuario> listar(int tipo) throws SQLException{
@@ -189,7 +201,9 @@ public class daoUsuario {
 	
 	/**
 	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
+	 * @param tipo usuario
 	 * @return tipoJson
+	 * @throws SQLException proponga los errores si ocurre un error
 	 */
 	
 	public String listarJson() throws SQLException {
@@ -204,7 +218,9 @@ public class daoUsuario {
 	}
 	/**
 	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
+	 * @param tipo
 	 * @return tipo int 
+	 * @throws SQLException proponga los errores si ocurre un error
 	 */
 	
 public String listarJson(int tipo) throws SQLException {

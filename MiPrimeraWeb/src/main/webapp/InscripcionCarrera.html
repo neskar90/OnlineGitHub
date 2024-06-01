@@ -6,7 +6,7 @@
     <title>Asociacion contra el cáncer de testículo</title>
 	<link rel="stylesheet" href="css/style.css">
 	
-	<script>
+	<script> <!-- mejor linkear como CSS -->
     
 	function llamada(id, op){
 		fetch('GestionCorredores?id='+id+"&op="+op)
@@ -14,6 +14,7 @@
 		.then(data => pintarFormulario(data))
 	
 	}
+
 	
 	function getParameterByName(name) {
 			    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -116,18 +117,18 @@
 </head>
 <body>
 
-<header><!-- Header -->
+<header>
 	<div class="banner">
 		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
 	</div>
 <header>
   
   
-<nav><!-- Navigacion bar menu  -->
+<nav>
   <div class="navbar">
   	<a href="index.html">Inicio</a>
     <a href="noticias.html">Noticias</a>
-    <a href="TiendaSolidaria.html">Tienda Solidaria</a>
+    <a href="ListaColaboradores.html">Colaboradores</a>
     <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
     <a href="Login.html">Iniciar session</a>
     <a href="InscripcionUsuario.html">Registrame</a>
@@ -161,7 +162,6 @@
                     </form>
             </div>  
 
-  <!-- Footer -->
   <div class="footer">
     <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
   </div>

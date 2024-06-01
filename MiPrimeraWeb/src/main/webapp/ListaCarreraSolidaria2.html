@@ -6,7 +6,7 @@
 <title>Asociacion contra el cáncer de testículo</title>
 <link rel="stylesheet" href="css/style.css">
 
-<script type="text/javascript">
+<script type="text/javascript"><!-- mejor linkear como CSS -->
 	
 	function llamada(){
 		fetch('GestionCarrera?op=1')
@@ -14,26 +14,35 @@
 		.then(data => pintarTabla(data))	
 	}
 	
+	function borrar(idColaborador) {
+		
+		if(confirm("Seguro que quieres borrar")) {
+			fetch('GestionColaboradorEditar?idColaborador='+idColaborador+'&op=3')
+		.then(response => response.json())
+		.then(data => pintarTabla(data))
+		}else {
+			
+		}
+	}
+	
 	function pintarTabla(datos){
-		
-		
-		let html = "<table>";
+	let html = "<table>";
 		html +="<thead>"
+		html +="<th class=diaz>id </th>";
 		html +="<th>Fecha</th>";
 		html +="<th>Nombre</th>";
 		html +="<th>Ciudad</th>";
 		html +="<th>Distancia</th>";
 		html +="<th></th>";
 		html +="</thead>"
-		for(let i=0;i<datos.length;i++){	
-
+		for(let i=0;i<datos.length;i++){
+			
+				html +="<tr><td>"+datos[i].idCarrera+"</td>";
 				html +="<td>"+datos[i].fechaCarrera+"</td>";
 				html +="<td>"+datos[i].nombreCarrera+"</td>";
 				html +="<td>"+datos[i].ciudadCarrera+"</td>";
 				html +="<td>"+datos[i].distanciaCarrera+"</td>";
-
-				html +="<td><a href='InscripcionCarrera.html'>Inscripción</a></td>";
-
+				html += "<td><a href='InscripcionCarrera.html?id="+datos[i].idCarrera+"'>Inscripción</a></td><td> ";
 				
 				html +="</tr>";	
 		}
@@ -43,39 +52,12 @@
 		document.getElementById("listado").innerHTML = html;
 		console.log(datos);		
 	}
-	
-	/*function pintarTabla(datos){
-		
-		
-		let html = "<div class='Containercarrera'>";
-		
-		for(let i=0;i<datos.length;i++){			
-			html +="<div class='Containercarrera1'>";
-	        html +="<p class='fcarrera'>"+datos[i].fechaCarrera+"</p";
-	        html+="</div>"
-	        html +="<div class='Containercarrera2'>";
-	        html +="<p class='NombreCarrera'>"+datos[i].nombreCarrera+"</p";
-	        html+="</div>"
-	        html +="<div class='Containercarrera3'>";
-	        html +="<p class='CiudadCarrera'>"+datos[i].ciudadCarrera+"</p";
-	        html+="</div>"
-	        html +="<div class='Containercarrera4'>";
-	        html +="<p class='DistanciaCarrera'>"+datos[i].distanciaCarrera+"</p";
-	        html +="</div>";
-	        
-			
-		}	
-		html +="</div>";
-		document.getElementById("listado").innerHTML = html;
-		console.log(datos);
-	}*/
-	
+
    window.onload = function() {
     
     	llamada();
     } 
-	
-    
+ 
 	</script>
 
 </head>
@@ -100,9 +82,6 @@
 	<section>
 		<div  id="listado"></div>
 	</section>
-
-
-
 	<!-- Footer -->
 	<div class="footer">
 		<h2>2024 Asociacion contra el cáncer de testículo - © Copyright

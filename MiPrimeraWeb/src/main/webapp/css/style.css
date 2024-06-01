@@ -63,7 +63,7 @@ background-color: rgb(255, 255, 255);
   text-align: center;
   margin-top: 50px;
   justify-content: right;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
 }
 
@@ -80,11 +80,6 @@ p{
   text-align: center;
   font-size: 22px;
 }
-
-
-
-
-
 
 /***************  card container********************/
 .card-container {
@@ -184,8 +179,6 @@ section{
     border-radius: 10px;
   }
 
-
-  
 .containertitulonoticia{
     background-color: #4070f4;
     justify-content: center;
@@ -214,52 +207,6 @@ section{
   background-color:#f0f0f0;
   border-radius: 10px;
   border:1px solid #000000;
-}
-
-.Containercarrera1{
-
-  width: 200px;
-  height: 70px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  
-}
-.Containercarrera2{
-  
-  margin: 1px;
-  width: 400px;
-  height: 70px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-.Containercarrera3{
-  margin: 1px;
-  width: 200px;
-  height: 70px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-.Containercarrera4{
-  margin: 1px;
-  width: 200px;
-  height: 70px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.Containercarrera5{
-    width: 1000px;
-    background-color: #f0f0f0;;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    margin: 20px;
-    border: 1px solid #000000;
-    border-radius: 10px;
 }
 
 /******************************* page inscripcion carrera ************************/

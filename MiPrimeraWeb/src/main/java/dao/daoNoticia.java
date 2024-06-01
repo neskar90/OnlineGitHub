@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 
 import modelo.Noticia;
-/**
- * Clase daoNoticia
- * @author: Renaud Bronchart
- * @version: 15/05/2024 v1.0
- */
 
+
+/**
+ * Clase dao daoNoticia
+ * @author Renaud Bronchart
+ * @version 15/05/2024 v1.0
+ */
 public class daoNoticia {
 
 	/**
@@ -26,6 +27,7 @@ public class daoNoticia {
 	
 	/**
 	 * Constructor daoNoticia para que se hace la connexion
+	 * @throws SQLException Si ocurre un error
 	 */
 	
 	
@@ -36,6 +38,8 @@ public class daoNoticia {
 	}
 	/**
 	 * Metodo de insercion en la BDD  del objeto Noticia
+	 * @param no Objeto tipo noticia 
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void insertar(Noticia no) throws SQLException{
 		
@@ -49,7 +53,9 @@ public class daoNoticia {
 	}
 	/**
 	 * Metodo para buscar el ID
-	 * @return tipo int
+	 * @param idNoticia buscar el id de noticia
+	 * @return id return id de noticia tipo entero
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public Noticia obtenerPorID(int idNoticia) throws SQLException {
 		String sql = " SELECT * FROM noticias where idNoticia=?";
@@ -67,6 +73,8 @@ public class daoNoticia {
 	}
 	/**
 	 * Metodo para actualizar 
+	 * @param no Objeto tipo Noticia 
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public void actualizar(Noticia no) throws SQLException {
@@ -81,6 +89,8 @@ public class daoNoticia {
 	}
 	/**
 	 * Metodo para borrar 
+	 * @param idNoticia borrar noticia con el id
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void borrar(int idNoticia) throws SQLException {
 		
@@ -93,7 +103,8 @@ public class daoNoticia {
 	}
 	/**
 	 * Metodo para Listar las carreras
-	 * @return listacarreras
+	 * @return Noticia
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public ArrayList<Noticia> listar() throws SQLException {
 		String sql = " SELECT * FROM noticias";
@@ -118,7 +129,9 @@ public class daoNoticia {
 	/**
 	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
 	 * @return tipo Json
+	 * @throws SQLException Si ocurre un error 
 	 */
+	
 	
 	public String listarJson() throws SQLException {
 		

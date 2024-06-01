@@ -159,4 +159,34 @@
     <servlet-name>GestionColaboradorEditar</servlet-name>
     <url-pattern>/GestionColaboradorEditar</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GestionPerfil</display-name>
+    <servlet-name>GestionPerfil</servlet-name>
+    <servlet-class>controlador.GestionPerfil</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestionPerfil</servlet-name>
+    <url-pattern>/GestionPerfil</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GestionPerfilUsuario</display-name>
+    <servlet-name>GestionPerfilUsuario</servlet-name>
+    <servlet-class>controlador.GestionPerfilUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestionPerfilUsuario</servlet-name>
+    <url-pattern>/GestionPerfilUsuario</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GestionLoginLogout</display-name>
+    <servlet-name>GestionLoginLogout</servlet-name>
+    <servlet-class>controlador.GestionLoginLogout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestionLoginLogout</servlet-name>
+    <url-pattern>/GestionLoginLogout</url-pattern>
+  </servlet-mapping>
 </web-app>

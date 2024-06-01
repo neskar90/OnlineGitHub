@@ -6,7 +6,7 @@
     <title>Asociacion contra el cáncer de testículo</title>
     <link rel="stylesheet" href="css/style.css">
     
-    <script>
+    <script> <!-- mejor linkear como CSS -->
     
 	function llamada(idCarrera, op){
 		fetch('GestionCarrera?idCarrera='+idCarrera+"&op="+op)
@@ -77,25 +77,23 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="banner">
-    <img src="img/Logo.png" alt="logoheader" class="headerlogo">
-  </div>
+  <!-- cabecera de nuestra pagina -->	
+<header>
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+<header>
   
   
-  <!-- Navigation Bar -->
+  <!-- menu de nuestra pagina -->
   <div class="navbar">
    	<a href="index.html">Inicio</a>
     <a href="noticias.html">Noticias</a>
     <a href="TiendaSolidaria.html">Tienda Solidaria</a>
     <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
-    <a href="Login.html">Iniciar session</a>
-    <a href="InscripcionUsuario.html">Registrame</a>
     <a href="GestorPortal.html">GestorPortal</a>
   </div>
   
-
-
         <h1 class="h2">Añadir Carrera</h1>  
             <div class="Containerform">
                 <form name="frm" method="post" action="GestionCarrera" id="ListaCarreraGestor">
@@ -111,11 +109,9 @@
                     <p align="center"> <input type="submit" name="submit" class="btn"  onclick="validarFormulario()" value="Enviar"></p>
                     </fieldset>
                     </form>
-            </div>  
+</div>  
             
-            
-
-  <!-- Footer -->
+  <!-- pie pagina -->
   <div class="footer">
     <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
   </div>

@@ -5,21 +5,13 @@ import java.sql.SQLException;
 import com.google.gson.Gson;
 import dao.daoColaborador;
 
-/**
- * Clase para el Modelo Colaborador
- * @author: Renaud Bronchart
- * @version: 15/05/2024 v1.0
- */
 
 /**
- * clase Colaborador
- * @param ID del Colaborador (PK) Atributo numero
- * @param nombre del Colaborador Atributo tipo texto
- * @param apellidos del Colaborador Atributo tipo texto
- * @param puesto del Colaborador Atributo tipo texto
- * @param foto del Colaborador Atributo tipo texto
- * @throws SQLException 
+ * Clase para el modelo Colaborador
+ * @author Renaud Bronchart
+ * @version 15/05/2024 v1.0
  */
+
 public class Colaborador {
 
 	private int idColaborador;
@@ -35,12 +27,12 @@ public class Colaborador {
 
 	}
 	/**
-	 * Constructor para generar un objeto desde el formulario con INT colaborador.
-	 * @param ID del  Colaborador (PK) Atributo numero
-	 * @param nombre del Colaborador Atributo tipo texto
-	 * @param apellidos del Colaborador Atributo tipo texto
-	 * @param puesto del Colaborador Atributo tipo texto
-	 * @param foto del Colaborador Atributo tipo texto
+	 * Constructor para generar un objeto desde el formulario con id colaborador.
+	 * @param idColaborador id del  Colaborador (PK) Atributo numero
+	 * @param nombre nombre del Colaborador Atributo tipo texto
+	 * @param apellidos apellidos del Colaborador Atributo tipo texto
+	 * @param puesto puesto del Colaborador Atributo tipo texto
+	 * @param foto foto del Colaborador Atributo tipo texto
 	 */
 	public Colaborador(int idColaborador, String nombre, String apellidos, String puesto, String foto) {
 		super();
@@ -50,6 +42,13 @@ public class Colaborador {
 		this.puesto = puesto;
 		this.foto = foto;
 	}
+	/**
+	 * Constructor para generar un objeto desde el formulario con id colaborador y sin foto.
+	 * @param idColaborador id del  Colaborador (PK) Atributo numero
+	 * @param nombre nombre del Colaborador Atributo tipo texto
+	 * @param apellidos apellidos del Colaborador Atributo tipo texto
+	 * @param puesto puesto del Colaborador Atributo tipo texto
+	 */
 	public Colaborador(int idColaborador, String nombre, String apellidos, String puesto) {
 		super();
 		this.idColaborador = idColaborador;
@@ -58,11 +57,11 @@ public class Colaborador {
 		this.puesto = puesto;
 	}
 	/**
-	 * Constructor para generar un objeto desde el formulario sin INT colaborador.
-	 * @param nombre del Colaborador Atributo tipo texto
-	 * @param apellidos del Colaborador Atributo tipo texto
-	 * @param puesto del Colaborador Atributo tipo texto
-	 * @param foto del Colaborador Atributo tipo texto
+	 * Constructor para generar un objeto desde el formulario sin id colaborador.
+	 * @param nombre nombre del Colaborador Atributo tipo texto
+	 * @param apellidos apellidos del Colaborador Atributo tipo texto
+	 * @param puesto puesto del Colaborador Atributo tipo texto
+	 * @param foto foto del Colaborador Atributo tipo texto
 	 */
 	public Colaborador(String nombre, String apellidos,String puesto,String foto) {
 		super();
@@ -71,6 +70,12 @@ public class Colaborador {
 		this.puesto = puesto;
 		this.foto = foto;
 	}
+	/**
+	 * Constructor para generar un objeto desde el formulario sin ID colaborador y sin foto.
+	 * @param nombre nombre del Colaborador Atributo tipo texto
+	 * @param apellidos apellidos del Colaborador Atributo tipo texto
+	 * @param puesto puesto del Colaborador Atributo tipo texto
+	 */
 	public Colaborador(String nombre, String apellidos,String puesto) {
 		super();
 		this.nombre = nombre;
@@ -86,6 +91,7 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo Para establecer el id del colaborador
+	 *  @param idColaborador  idColaborador
 	 */
 	public void setidColaborador(int idColaborador) {
 		this.idColaborador = idColaborador;
@@ -99,6 +105,7 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo Para establecer el nombre del colaborador
+	 * @param nombre nombre
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -112,6 +119,7 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo Para establecer los apellidos del colaborador
+	 * @param apellidos apellidos
 	 */
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
@@ -125,6 +133,7 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo Para establecer el puesto del colaborador
+	 * @param puesto puesto
 	 */
 	public void setPuesto(String puesto) {
 		this.puesto = puesto;
@@ -138,12 +147,14 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo Para establecer la foto del colaborador
+	 * @param foto foto
 	 */
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 	/**
 	 * Metodo que inserta el elemento en la base de datos via DAO
+	 * @throws SQLException Si ocurre un error
 	 */
 	public void insertar( ) throws SQLException {
 		daoColaborador dao = new daoColaborador();
@@ -151,6 +162,7 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo que permite actualizar el elemento en la base de datos via DAO
+	 * @throws SQLException Si ocurre un error
 	 */
 	public void actualizar() throws SQLException {
 		daoColaborador dao = new daoColaborador();
@@ -158,6 +170,8 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo que permite obtener un ID del elemento en la base de datos via DAO
+	 * @param idColaborador objeto Colaborador
+	 * @throws SQLException Si ocurre un error
 	 */
 	public void obtenerPorID(int idColaborador) throws SQLException {
 		daoColaborador dao = new daoColaborador();
@@ -172,6 +186,8 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo que permite borrar el elemento en la base de datos via DAO
+	 * @param idColaborador objeto Colaborador
+	 * @throws SQLException Si ocurre un error
 	 */
 	public void borrar(int idColaborador) throws SQLException {
 		daoColaborador dao = new daoColaborador();
@@ -179,6 +195,7 @@ public class Colaborador {
 	}
 	/**
 	 * Metodo para devolver Json de tipo String
+	 * @return json
 	 */
 	public String dameJson() {
 		String json = "";

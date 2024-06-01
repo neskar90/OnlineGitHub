@@ -1,3 +1,10 @@
+/**
+ * Provee los servlets necesarios para correr la funcionalidad del controlador de la aplicacion 
+ */
+/**
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
 package controlador;
 
 import jakarta.servlet.ServletException;
@@ -133,7 +140,6 @@ public class GestionUsuario extends HttpServlet {
 				u.setId(idInt);		
 				u.actualizar();	
 				
-			
 
 			}
 			
@@ -143,9 +149,8 @@ public class GestionUsuario extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-	
-		response.sendRedirect("ListaUsuariosGestor.html");
-	
+
+			response.sendRedirect("ListaUsuariosGestor.html");
 	
 		
 

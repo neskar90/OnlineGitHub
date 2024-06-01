@@ -1,3 +1,10 @@
+/**
+ * Provee los servlets necesarios para correr la funcionalidad del controlador de la aplicacion 
+ */
+/**
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
 package controlador;
 
 import jakarta.servlet.ServletException;
@@ -5,11 +12,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import modelo.Corredor;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.Map;
 
 import dao.daoCorredor;
 
@@ -18,7 +28,7 @@ import dao.daoCorredor;
  */
 public class GestionCorredores extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	 HttpSession sesion;    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,54 +42,66 @@ public class GestionCorredores extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		sesion = request.getSession();
 		
-		PrintWriter out = response.getWriter();
-		
-		
-		int opcion = Integer.parseInt(request.getParameter("op"));
-		
-		
-		if(opcion == 2) {
-			//proceso logica edicion
-		
-			int id = Integer.parseInt(request.getParameter("id"));
-			Corredor co = new Corredor();
-			try {
-				co.obtenerPorID(id);
-				out.print(co.dameJson());
-				System.out.println(co.dameJson());
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	
-		
-		}else if(opcion==1) {
-			daoCorredor Corredores;
-			try {
-				Corredores = new daoCorredor();
-				out.print(Corredores.listarJson());
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
-
-		}else if(opcion==3){
+		String email = (String) sesion.getAttribute("email");
+		if (email != null) { 
 			
-			try {
-				int id = Integer.parseInt(request.getParameter("id"));
-				daoCorredor Corredores = new daoCorredor();
-				Corredores.borrar(id);
-				out.print(Corredores.listarJson());
+			PrintWriter out = response.getWriter();
+		
+			
+			int opcion = Integer.parseInt(request.getParameter("op"));
+			
+			
+			if(opcion == 2) {
 				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				
+				//proceso logica edicion
 			
+				int id = Integer.parseInt(request.getParameter("id"));
+				Corredor co = new Corredor();
+				try {
+					co.obtenerPorID(id);
+					out.print(co.dameJson());
+					System.out.println(co.dameJson());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+			
+			}else if(opcion==1) {
+				daoCorredor Corredores;
+				try {
+					Corredores = new daoCorredor();
+					out.print(Corredores.listarJson());
+	
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+	
+			}else if(opcion==3){
+				
+					try {
+						int id = Integer.parseInt(request.getParameter("id"));
+						daoCorredor Corredores = new daoCorredor();
+						Corredores.borrar(id);
+						out.print(Corredores.listarJson());
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				
+			}
+		
+		}else {
+			System.out.println("error");
+			response.sendRedirect("Loginsierror.html");
 		}
+		
 	}
 
 	/**
@@ -87,9 +109,13 @@ public class GestionCorredores extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
+		Map<String,String[]> parameters = request.getParameterMap();
+		for(String parameter : parameters.keySet()) {
+			System.out.println("Parameter num: " + parameter);
+			System.out.println("Parameter value: " + Arrays.toString(parameters.get(parameter)));
+		}
 	
+		
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		String mail = request.getParameter("mail");
@@ -104,31 +130,31 @@ public class GestionCorredores extends HttpServlet {
 		
 		Corredor co;
 		
-	try {
-		
-		
-		co = new Corredor(nombre,apellidos,mail,dni,fechanacimiento,sexo,direccion,ciudad,telefono);
-		if(id == "") {
+		try {
 			
-		daoCorredor dao = new daoCorredor();	
-		dao.insertar(co);
-			 
-		}else {
-			int idInt = Integer.parseInt(id);
-			co.setid(idInt);		
-			co.actualizar();	
-			}
+			
+			co = new Corredor(nombre,apellidos,mail,dni,fechanacimiento,sexo,direccion,ciudad,telefono);
+			if(id == "") {
+				
+			daoCorredor dao = new daoCorredor();	
+			dao.insertar(co);
+				 
+			}else {
+				int idInt = Integer.parseInt(id);
+				co.setid(idInt);		
+				co.actualizar();	
+				}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	
+		response.sendRedirect("index.html");
+	
 		
 	
-	response.sendRedirect("ListaCorredores.html");
-
 	}
-	
-	
 
 }

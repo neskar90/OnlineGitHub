@@ -6,7 +6,7 @@
     <title>Asociacion contra el cáncer de testículo</title>
     <link rel="stylesheet" href="css/style.css">
     
-    <script type="text/javascript" >
+    <script type="text/javascript" > <!-- mejor linkear como CSS -->
     
 	function llamada(idColaborador, op){
 		fetch('GestionColaboradorEditar?idColaborador='+idColaborador+"&op="+op)
@@ -70,20 +70,19 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="banner">
-    <img src="img/Logo.png" alt="logoheader" class="headerlogo">
-  </div>
+  <!-- cabecera de nuestra pagina -->	
+<header>
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+<header>
   
-  
-  <!-- Navigation Bar -->
+ <!-- menu de nuestra pagina -->
   <div class="navbar">
     <a href="index.html">Inicio</a>
     <a href="noticias.html">Noticias</a>
     <a href="ListaColaboradores.html">Colaboradores</a>
     <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
-    <a href="Login.html">Iniciar session</a>
-    <a href="InscripcionUsuario.html">Registrame</a>
     <a href="GestorPortal.html">GestorPortal</a>
   </div>
   
@@ -96,21 +95,18 @@
                     <fieldset id="form">
                     <legend>Colaborador</legend>
                     <ol>
-                    	<input type="text" id="idColaborador" name="idColaborador">
+                    	<input type="hidden" id="idColaborador" name="idColaborador">
                         <li><label>Nombre: </label><input type="text" id="nombre"  name="nombre" size="25" /></li>
                         <li><label>Apellidos: </label><input type="text" id="apellidos" name="apellidos" size="25" /></li>
                         <li><label>Puesto: </label><input type="text" id="puesto" name="puesto" size="25" /></li>
-                        <li><label>Foto: </label><input type="file" id="foto" name="foto"></li>
-         
-                        
-                        
+                        <li><label>Foto: </label><input type="file" id="foto" name="foto"></li>                      
                     </ul>
                       <p align="center"> <input type="submit" name="submit" class="btn"  onclick="validarFormulario()" value=Enviar></p>
                     </fieldset>
                     </form>
             </div>  
 
-  <!-- Footer -->
+  <!-- pie pagina -->
   <div class="footer">
     <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
   </div>

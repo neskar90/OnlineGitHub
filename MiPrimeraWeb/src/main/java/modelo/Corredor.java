@@ -5,25 +5,11 @@ import java.sql.SQLException;
 import com.google.gson.Gson;
 
 import dao.daoCorredor;
-/**
- * Clase para el Modelo Corredor
- * @author: Renaud Bronchart
- * @version: 15/05/2024 v1.0
- */
 
 /**
- * clase Corredor
- * @param ID del corredor (PK) Atributo numero
- * @param nombre del corredor Atributo tipo texto
- * @param apellidos del corredor Atributo tipo texto
- * @param mail del corredor Atributo tipo texto
- * @param dni del corredor Atributo tipo texto
- * @param fecha nacimiento del corredor Atributo tipo texto
- * @param sexo  del corredor Atributo tipo texto
- * @param direccion  del corredor Atributo tipo texto
- * @param ciudad del corredor Atributo tipo texto
- * @param telefono nacimiento del corredor Atributo tipo texto
- * @throws SQLException 
+ * Clase para el modelo Corredor
+ * @author Renaud Bronchart
+ * @version 15/05/2024 v1.0
  */
 public class Corredor {
 	private int id;
@@ -46,6 +32,16 @@ public class Corredor {
 	}
 	/**
 	 * Constructor para generar un objeto desde el formulario con INT ID.
+	 * @param id id del corredor (PK) Atributo numero
+	 * @param nombre nombre del corredor Atributo tipo texto
+	 * @param apellidos apellidos del corredor Atributo tipo texto
+	 * @param mail mail del corredor Atributo tipo texto
+	 * @param dni dni del corredor Atributo tipo texto
+	 * @param fechanacimiento fechanacimiento del corredor Atributo tipo texto
+	 * @param sexo sexo del corredor Atributo tipo texto
+	 * @param direccion direccion del corredor Atributo tipo texto
+	 * @param ciudad ciudad del corredor Atributo tipo texto
+	 * @param telefono telefono  del corredor Atributo tipo texto
 	 */
 	public Corredor(int id, String nombre, String apellidos, String mail, String dni, String fechanacimiento, String sexo,
 			String direccion, String ciudad, String telefono) {
@@ -63,9 +59,18 @@ public class Corredor {
 	}
 	/**
 	 * Constructor para generar un objeto desde el formulario sin INT ID.
+	 * @param nombre nombre del corredor Atributo tipo texto
+	 * @param apellidos apellidos del corredor Atributo tipo texto
+	 * @param mail mail del corredor Atributo tipo texto
+	 * @param dni dni del corredor Atributo tipo texto
+	 * @param fechanacimiento fechanacimiento del corredor Atributo tipo texto
+	 * @param sexo sexo del corredor Atributo tipo texto
+	 * @param direccion direccion del corredor Atributo tipo texto
+	 * @param ciudad ciudad del corredor Atributo tipo texto
+	 * @param telefono telefono  del corredor Atributo tipo texto
 	 */
 	public Corredor(String nombre, String apellidos, String mail, String dni, String fechanacimiento, String sexo,
-			String direccion, String cuiudad, String telefono) {
+			String direccion, String ciudad, String telefono) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -74,7 +79,7 @@ public class Corredor {
 		this.fechanacimiento = fechanacimiento;
 		this.sexo = sexo;
 		this.direccion = direccion;
-		this.ciudad = cuiudad;
+		this.ciudad = ciudad;
 		this.telefono = telefono;
 	}
 	/**
@@ -86,13 +91,14 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer el id del corredor
+	 * @param id  id
 	 */
 	public void setid(int id) {
 		this.id = id;
 	}
 	/**
 	 * Metodo Para obtener el nombre del corredor
-	 * @return el nombre de la carrera
+	 * @return el nombre del corredor
 	 */
 
 	public String getNombre() {
@@ -100,6 +106,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer el nombre del corredor
+	 * @param nombre  nombre
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -113,6 +120,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer el  apellido del corredor
+	 * @param apellidos  apellidos
 	 */
 
 	public void setApellidos(String apellidos) {
@@ -127,6 +135,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer el mail del corredor
+	 * @param mail  mail
 	 */
 	
 	public void setMail(String mail) {
@@ -141,6 +150,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer el DNI del corredor
+	 * @param dni  dni
 	 */
 	public void setDni(String dni) {
 		this.dni = dni;
@@ -154,6 +164,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer la fecha de nacimiento del corredor
+	 * @param fechanacimiento  fechanacimiento
 	 */
 	public void setFechanacimiento(String fechanacimiento) {
 		this.fechanacimiento = fechanacimiento;
@@ -167,6 +178,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer el sexo del corredor
+	 * @param sexo  sexo
 	 */
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
@@ -180,6 +192,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer la direccion del corredor
+	 * @param direccion  direccion
 	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
@@ -193,6 +206,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer la ciudad del corredor
+	 * @param ciudad  ciudad
 	 */
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
@@ -206,12 +220,14 @@ public class Corredor {
 	}
 	/**
 	 * Metodo Para establecer el telefono del corredor
+	 * @param telefono  telefono
 	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	/**
 	 * Metodo que inserta el elemento en la base de datos via DAO
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void insertar() throws SQLException {
 		daoCorredor dao = new daoCorredor();
@@ -219,6 +235,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo que permite actualizar el elemento en la base de datos via DAO
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void actualizar() throws SQLException {
 	daoCorredor dao = new daoCorredor();
@@ -226,6 +243,9 @@ public class Corredor {
 	}
 	/**
 	 * Metodo que permite obtener un ID del elemento en la base de datos via DAO
+	 * @param id objeto corredor
+	 * @throws SQLException Si ocurre un error 
+	 * 
 	 */
 	
 	public void obtenerPorID(int id) throws SQLException {
@@ -244,6 +264,8 @@ public class Corredor {
 	}
 	/**
 	 * Metodo que permite borrar el elemento en la base de datos via DAO
+	 * @param id objeto corredor
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void borrar (int id) throws SQLException {
 	daoCorredor dao = new daoCorredor();
@@ -251,6 +273,7 @@ public class Corredor {
 	}
 	/**
 	 * Metodo para devolver Json de tipo String
+	 * @return json
 	 */
 	public String dameJson() {
 		String json = "";

@@ -6,7 +6,7 @@
     <title>Asociacion contra el cáncer de testículo</title>
     <link rel="stylesheet" href="css/style.css">
     
-	<script type="text/javascript">
+	<script type="text/javascript"> <!-- mejor linkear como CSS -->
     
 	function llamada(idNoticia, op){
 		fetch('GestionNoticia?idNoticia='+idNoticia+"&op="+op)
@@ -61,25 +61,20 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="banner">
-    <img src="img/Logo.png" alt="logoheader" class="headerlogo">
-  </div>
+  <!-- cabecera de nuestra pagina -->	
+<header>
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+<header>
   
-  
-  <!-- Navigation Bar -->
   <div class="navbar">
     <a href="index.html">Inicio</a>
     <a href="noticias.html">Noticias</a>
-    <a href="TiendaSolidaria.html">Tienda Solidaria</a>
+    <a href="ListaColaboradores.html">Colaboradores</a>
     <a href="ListaCarreraSolidaria2.html">Carreras Solidarias</a>
-    <a href="Login.html">Iniciar session</a>
-    <a href="InscripcionUsuario.html">Registrame</a>
     <a href="GestorPortal.html">GestorPortal</a>
   </div>
-  
-  <!-- main content anadir carrera -->
-
         <h1 class="h2">Añadir Noticia</h1>  
 
             <div class="Containerform">
@@ -89,15 +84,13 @@
                     <ol>
                     	<input type="hidden" id="idNoticia" name="idNoticia">
                         <li><label>Titulo: </label><input type="text" id="titulo"  name="titulo" size="60" /></li>
-                        <li><label>Descripcion: </label> <textarea id="descripcion" name="descripcion" rows="30" cols="80"></textarea></li>
-                        
+                        <li><label>Descripcion: </label> <textarea id="descripcion" name="descripcion" rows="30" cols="80"></textarea></li>                       
                     </ul>
                       <p align="center"> <input type="submit" name="submit" class="btn"  onclick="validarFormulario()" value="Enviar"></p>
                     </fieldset>
                     </form>
             </div>  
 
-  <!-- Footer -->
   <div class="footer">
     <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
   </div>

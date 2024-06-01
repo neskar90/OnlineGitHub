@@ -10,10 +10,11 @@ import com.google.gson.Gson;
 
 import modelo.Colaborador;
 
+
 /**
- * Clase daoColaborador
- * @author: Renaud Bronchart
- * @version: 15/05/2024 v1.0
+ * Clase dao daoColaborador
+ * @author Renaud Bronchart
+ * @version 15/05/2024 v1.0
  */
 public class daoColaborador {
 
@@ -24,6 +25,7 @@ public class daoColaborador {
 	public static Connection con = null;
 	/**
 	 * Constructor daoColaborador para que se hace la connexion
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public daoColaborador() throws SQLException {
@@ -33,8 +35,10 @@ public class daoColaborador {
 	}
 	/**
 	 * Metodo de insercion en la BDD  del objeto Colaborador
+	 * @param co Objeto tipo Colaborador 
+	 * @throws SQLException Si ocurre un error 
 	 */
-	
+
 	public void insertar(Colaborador co) throws SQLException{
 		
 		String sql = "INSERT INTO Colaboradores (nombre,apellidos,puesto,foto) VALUES (?,?,?,?)";
@@ -51,8 +55,11 @@ public class daoColaborador {
 	}
 	/**
 	 * Metodo para buscar el ID
-	 * @return tipo int
+	 * @param idColaborador buscar el idColaborador de Colaborador
+	 * @return idColaborador return id de Colaborador tipo entero
+	 * @throws SQLException Si ocurre un error 
 	 */
+	
 	
 	public Colaborador obtenerPorID(int idColaborador) throws SQLException {
 		String sql = " SELECT * FROM Colaboradores where idColaboradores=?";
@@ -70,7 +77,10 @@ public class daoColaborador {
 	}
 	/**
 	 * Metodo para actualizar 
+	 * @param co Objeto tipo Colaborador 
+	 * @throws SQLException Si ocurre un error 
 	 */
+	
 	public void actualizar(Colaborador co) throws SQLException {
 		String sql = " UPDATE Colaboradores SET nombre=?, apellidos=?, puesto=?, foto=? WHERE idColaboradores=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -87,6 +97,8 @@ public class daoColaborador {
 	
 	/**
 	 * Metodo para borrar 
+	 * @param idColaborador borrar Colaborador con el idColaborador
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public void borrar(int idColaborador) throws SQLException {
@@ -100,7 +112,8 @@ public class daoColaborador {
 	}
 	/**
 	 * Metodo para Listar las carreras
-	 * @return listacarreras
+	 * @return Colaborador
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public ArrayList<Colaborador> listar() throws SQLException {
@@ -125,6 +138,7 @@ public class daoColaborador {
 	/**
 	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
 	 * @return tipo Json
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public String listarJson() throws SQLException {

@@ -11,9 +11,9 @@ import com.google.gson.Gson;
 import modelo.Corredor;
 
 /**
- * Clase daoCorredor
- * @author: Renaud Bronchart
- * @version: 15/05/2024 v1.0
+ * Clase dao daoCorredor
+ * @author Renaud Bronchart
+ * @version 15/05/2024 v1.0
  */
 public class daoCorredor {
 
@@ -24,6 +24,7 @@ public class daoCorredor {
 	public static Connection con = null;
 	/**
 	 * Constructor daoCorredor para que se hace la connexion
+	 * @throws SQLException Si ocurre un error
 	 */
 	
 	public daoCorredor() throws SQLException {
@@ -33,6 +34,8 @@ public class daoCorredor {
 	}
 	/**
 	 * Metodo de insercion en la BDD  del objeto Carrera
+	 * @param co Objeto tipo Corredor 
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void insertar(Corredor co) throws SQLException{
 		
@@ -53,7 +56,9 @@ public class daoCorredor {
 	}
 	/**
 	 * Metodo para buscar el ID
-	 * @return tipo int
+	 * @param id buscar el id del Corredor
+	 * @return id return id del Corredor tipo entero
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public Corredor obtenerPorID(int id) throws SQLException {
@@ -72,7 +77,10 @@ public class daoCorredor {
 	}
 	/**
 	 * Metodo para actualizar 
+	 * @param co Objeto tipo Corredor 
+	 * @throws SQLException Si ocurre un error 
 	 */
+	
 	public void actualizar(Corredor co) throws SQLException {
 		String sql = " UPDATE  corredores SET nombre=?, apellidos=?, mail=?, dni=?, fechanacimiento=?, sexo=?,direccion=?,ciudad=?,telefono=? WHERE id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
@@ -93,6 +101,8 @@ public class daoCorredor {
 	}
 	/**
 	 * Metodo para borrar 
+	 * @param id borrar Corredor con el id
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public void borrar(int id) throws SQLException {
@@ -106,8 +116,10 @@ public class daoCorredor {
 	}
 	/**
 	 * Metodo para Listar las carreras
-	 * @return listacarreras
+	 * @return Corredor
+	 * @throws SQLException Si ocurre un error 
 	 */
+	
 	public ArrayList<Corredor> listar() throws SQLException {
 		String sql = " SELECT * FROM corredores";
 		
@@ -132,6 +144,7 @@ public class daoCorredor {
 	/**
 	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
 	 * @return tipo Json
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public String listarJson() throws SQLException {
 		

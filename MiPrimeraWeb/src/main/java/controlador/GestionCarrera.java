@@ -1,3 +1,11 @@
+/**
+ * Provee los servlets necesarios para correr la funcionalidad del controlador de la aplicacion 
+ */
+/**
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
+
 package controlador;
 
 import jakarta.servlet.ServletException;
@@ -32,6 +40,8 @@ public class GestionCarrera extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
 		
 		PrintWriter out = response.getWriter();
 		

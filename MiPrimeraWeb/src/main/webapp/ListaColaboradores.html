@@ -6,7 +6,7 @@
     <title>Asociacion contra el cáncer de testículo</title>
 	<link rel="stylesheet" href="css/style.css">
 	
-	<script type="text/javascript">
+	<script type="text/javascript"> <!-- mejor linkear como CSS -->
 	
 	function llamada(){
 		fetch('GestionColaborador')
@@ -26,9 +26,7 @@
 	}
 	
 	function pintarTabla(datos){
-		
-		
-		
+	
 		let html = "<div class='card-container'>";
 	
 		for(let i=0;i<datos.length;i++){			
@@ -36,7 +34,6 @@
 	        html += "<div class='card-content'><h3>"+datos[i].nombre+"<p> </p>"+datos[i].apellidos+"</h3></div>";
 	        html += "<div class='card-content'><p>"+datos[i].puesto+"</p></div>";
 	        html+="</div>"
-
 		}	
 		html +="</div>";
 		document.getElementById("listadoColab").innerHTML = html;
@@ -49,18 +46,16 @@
     } 
     
 	</script>
-	
 			
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="banner">
-    <img src="img/Logo.png" alt="logoheader" class="headerlogo">
-  </div>
-  
-  
-  <!-- Navigation Bar -->
+  <!-- cabecera de nuestra pagina -->	
+<header>
+	<div class="banner">
+		<img src="img/Logo.png" alt="logoheader" class="headerlogo">
+	</div>
+<header>
   
   <div class="navbar">
   	<a href="index.html">Inicio</a>
@@ -79,7 +74,7 @@
 	 	<div id="listadoColab"></div>
 	
 	</section>
-  <!-- Footer -->
+
   <div class="footer">
     <h2>2024 Asociacion contra el cáncer de testículo - © Copyright 2024 - Diseñado por Renaud Bronchart</h2>
   </div>

@@ -1,3 +1,6 @@
+/**
+ * Provee las clases DAO para trabajar con la base de datos de la aplicacion 
+ */
 package dao;
 
 import java.sql.Connection;
@@ -12,9 +15,10 @@ import modelo.Carrera;
 
 /**
  * Clase daoCarrera
- * @author: Renaud Bronchart
- * @version: 15/05/2024 v1.0
+ * @author Renaud Bronchart
+ * @version 15/05/2024 v1.0
  */
+
 
 public class daoCarrera {
 	
@@ -26,6 +30,7 @@ public class daoCarrera {
 	
 	/**
 	 * Constructor DaoCarrera para que se hace la connexion
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public daoCarrera() throws SQLException {
@@ -36,6 +41,8 @@ public class daoCarrera {
 	
 	/**
 	 * Metodo de insercion en la BDD  del objeto Carrera
+	 * @param c Objeto tipo carrera 
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void insertar(Carrera c) throws SQLException{
 		
@@ -53,7 +60,9 @@ public class daoCarrera {
 	
 	/**
 	 * Metodo para buscar el ID
-	 * @return tipo int
+	 * @param idCarrera buscar el id de Carrera
+	 * @return id return id de Carrera tipo entero
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public Carrera obtenerPorID(int idCarrera) throws SQLException {
@@ -73,6 +82,8 @@ public class daoCarrera {
 	
 	/**
 	 * Metodo para actualizar 
+	 * @param c Objeto tipo Carrera 
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	
@@ -92,6 +103,8 @@ public class daoCarrera {
 	
 	/**
 	 * Metodo para borrar 
+	 * @param idCarrera borrar Carrera con el id
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public void borrar(int idCarrera) throws SQLException {
@@ -105,7 +118,8 @@ public class daoCarrera {
 	}
 	/**
 	 * Metodo para Listar las carreras
-	 * @return listacarreras
+	 * @return Carrera
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public ArrayList<Carrera> listar() throws SQLException {
@@ -129,6 +143,7 @@ public class daoCarrera {
 	/**
 	 * Metodo Json que permite obtener todo lo datos de ArrayList listar
 	 * @return tipo Json
+	 * @throws SQLException Si ocurre un error 
 	 */
 	
 	public String listarJson() throws SQLException {

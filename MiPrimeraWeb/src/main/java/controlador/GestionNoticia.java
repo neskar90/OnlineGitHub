@@ -1,3 +1,10 @@
+/**
+ * Provee los servlets necesarios para correr la funcionalidad del controlador de la aplicacion 
+ */
+/**
+ * @author: Renaud Bronchart
+ * @version: 15/05/2024 v1.0
+ */
 package controlador;
 
 import jakarta.servlet.ServletException;

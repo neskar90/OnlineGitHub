@@ -6,23 +6,14 @@ import com.google.gson.Gson;
 
 import dao.daoCarrera;
 
-/**
- * Clase para el Modelo Carrera
- * @author: Renaud Bronchart
- * @version: 15/05/2024 v1.0
- */
 
 /**
- * clase carrera
- * @param ID de la carrera (PK) Atributo numero
- * @param fecha de la carrera Atributo tipo texto
- * @param nombre de la carrera Atributo tipo texto
- * @param ciudad de la carrera Atributo tipo texto
- * @param distancia de la carrera Atributo tipo texto
- * @throws SQLException 
+ * Clase para el modelo Carrera
+ * @author Renaud Bronchart
+ * @version 15/05/2024 v1.0
  */
 public class Carrera {
-	
+
 	private int idCarrera;
 	private String fechaCarrera;
 	private String nombreCarrera;
@@ -38,11 +29,11 @@ public class Carrera {
 	}
 /**
  * Constructor para generar un objeto desde el formulario con INT idCarrera.
- * @param ID de la carrera (PK) Atributo numero
- * @param fecha de la carrera Atributo tipo texto
- * @param nombre de la carrera Atributo tipo texto
- * @param ciudad de la carrera Atributo tipo texto
- * @param distancia de la carrera Atributo tipo texto
+ * @param idCarrera id de la carrera (PK) Atributo numero
+ * @param fechaCarrera fecha de la carrera Atributo tipo texto
+ * @param nombreCarrera nombre de la carrera Atributo tipo texto
+ * @param ciudadCarrera ciudad de la carrera Atributo tipo texto
+ * @param distanciaCarrera distancia de la carrera Atributo tipo texto
  */	
 	public Carrera(int idCarrera, String fechaCarrera, String nombreCarrera, String ciudadCarrera, String distanciaCarrera) {
 		super();
@@ -52,12 +43,12 @@ public class Carrera {
 		this.ciudadCarrera = ciudadCarrera;
 		this.distanciaCarrera = distanciaCarrera;
 	}
-	/**
-	 * Constructor para generar un objeto desde el formulario sin INT idCarrera.
-	 * @param fecha de la carrera Atributo tipo texto
-	 * @param nombre de la carrera Atributo tipo texto
-	 * @param ciudad de la carrera Atributo tipo texto
-	 * @param distancia de la carrera Atributo tipo texto
+ /**
+ * Constructor para generar un objeto desde el formulario sin INT idCarrera.
+ * @param fechaCarrera fecha de la carrera Atributo tipo texto
+ * @param nombreCarrera nombre de la carrera Atributo tipo texto
+ * @param ciudadCarrera ciudad de la carrera Atributo tipo texto
+ * @param distanciaCarrera distancia de la carrera Atributo tipo texto
 	 */	
 	public Carrera(String fechaCarrera, String nombreCarrera, String ciudadCarrera, String distanciaCarrera) {
 		this.fechaCarrera = fechaCarrera;
@@ -74,6 +65,7 @@ public class Carrera {
 	}
 	/**
 	 * Metodo Para establecer el id de carrera
+	 * @param idCarrera  Parametro
 	 */
 	public void setidCarrera(int idCarrera) {
 		this.idCarrera = idCarrera;
@@ -88,6 +80,7 @@ public class Carrera {
 	}
 	/**
 	 * Metodo Para establecer la fecha de carrera
+	 * @param fechaCarrera  Parametro
 	 */
 	public void setFechaCarrera(String fechaCarrera) {
 		this.fechaCarrera = fechaCarrera;
@@ -101,6 +94,7 @@ public class Carrera {
 	}
 	/**
 	 * Metodo Para establecer el nombre de carrera
+	 * @param nombreCarrera  Parametro
 	 */
 	public void setNombreCarrera(String nombreCarrera) {
 		this.nombreCarrera = nombreCarrera;
@@ -114,7 +108,9 @@ public class Carrera {
 	}
 	/**
 	 * Metodo Para establecer la ciudad de carrera
+	 * @param ciudadCarrera  Parametro
 	 */
+	
 	public void setCiudadCarrera(String ciudadCarrera) {
 		this.ciudadCarrera = ciudadCarrera;
 	}
@@ -127,12 +123,14 @@ public class Carrera {
 	}
 	/**
 	 * Metodo Para establecer la distancia de carrera
+	 * @param distanciaCarrera  Parametro
 	 */
 	public void setDistanciaCarrera(String distanciaCarrera) {
 		this.distanciaCarrera = distanciaCarrera;
 	}
 	/**
 	 * Metodo que inserta el elemento en la base de datos via DAO
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void Insertar() throws SQLException {
 		daoCarrera dao = new daoCarrera();
@@ -140,6 +138,7 @@ public class Carrera {
 	}
 	/**
 	 * Metodo que permite actualizar el elemento en la base de datos via DAO
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void actualizar() throws SQLException {
 		daoCarrera dao = new daoCarrera();
@@ -147,6 +146,8 @@ public class Carrera {
 	}
 	/**
 	 * Metodo que permite borrar el elemento en la base de datos via DAO
+	 * @param idCarrera objeto Carrera
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void borrar(int idCarrera) throws SQLException {
 		daoCarrera dao = new daoCarrera();
@@ -154,6 +155,8 @@ public class Carrera {
 	}
 	/**
 	 * Metodo que permite obtener un ID del elemento en la base de datos via DAO
+	 * @param idCarrera objeto Carrera
+	 * @throws SQLException Si ocurre un error 
 	 */
 	public void obtenerPorID(int idCarrera) throws SQLException {
 		daoCarrera dao = new daoCarrera();
@@ -167,6 +170,7 @@ public class Carrera {
 	}
 	/**
 	 * Metodo para devolver Json de tipo String
+	 * @return json
 	 */
 	public String dameJson() {
 		String json = "";
